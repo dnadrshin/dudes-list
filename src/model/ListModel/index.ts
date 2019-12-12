@@ -1,35 +1,29 @@
-import { observable, computed, action, decorate } from 'mobx';
+import { observable, computed } from 'mobx';
 import { ListLoader } from '../loaders/ListLoader';
 
 export class ListModel {
     @observable public count$ = 0;
     @observable public pages$ = 0;
-    @observable private _page$ = 0;
+    @observable private _page$ = null;
     @observable private _profiles$ = observable([]);
     @observable private _isLoading$ = false;
-
-    constructor() {
-        const loader = new ListLoader();
-        loader.load(0).then((data) => {
-            this.profiles$ = data.results;
-            this.pages$ = data.info.pages;
-            this.count$ = data.info.count;
-        });
-    }
 
     @computed
     get page$() {
         return this._page$;
     }
-
     set page$(page) {
         this.isLoading$ = true;
         const loader = new ListLoader();
         loader.load(page).then((data) => {
             this.isLoading$ = false;
             this.profiles$ = data.results;
+            if (!this._page$) {
+                this.pages$ = data.info.pages;
+                this.count$ = data.info.count;
+            }
+            this._page$ = page;
         });
-        this._page$ = page;
     }
 
     @computed
