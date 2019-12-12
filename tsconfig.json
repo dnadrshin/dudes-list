@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+      "allowSyntheticDefaultImports": true,
+      "declaration": false,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "mapRoot": ".",
+      "baseUrl": ".",
+      "paths": {
+        "app/*": ["src/model/*"],
+        "components/*": ["./src/components/*"]
+      },
+      "module": "esnext",
+      "moduleResolution": "node",
+      "target": "es5",
+      "lib": [ "es5", "es6", "dom", "scripthost" ],
+      "downlevelIteration": true,
+      "jsx": "react"
+    },
+    "typeRoots": [
+      "./types/",
+      "./node_modules/@types"
+    ],
+    "exclude": [
+      "node_modules",
+      "./config"
+    ],
+    "awesomeTypescriptLoaderOptions": {
+      "useCache": true,
+      "useBabel": true
+    }
+}
