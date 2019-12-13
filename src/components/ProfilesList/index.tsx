@@ -6,6 +6,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import { ProfileListItem } from '../ProfileListItem';
+
 export const ProfilesList = observer(({ list }) => {
     const profiles = list.profiles$;
 
@@ -21,10 +23,6 @@ export const ProfilesList = observer(({ list }) => {
     </div>; }
 
     return (<List component='nav' style={{ overflow: 'auto' }}>
-        {profiles.map((profile) => {
-            return <ListItem component={Link} to={`/profile/${profile.id}`} button key={profile.id}>
-                    {profile.name}
-                </ListItem>
-            ; })}
+        {profiles.map((profile) => <ProfileListItem profile={profile} /> )}
     </List>);
 });
