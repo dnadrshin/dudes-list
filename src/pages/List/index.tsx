@@ -11,7 +11,7 @@ export const List = (props: { list: ListModel }) => {
         }
     });
     return <React.Fragment>
-        <ProfilesList list={props.list} />
         <Paginator list={props.list} />
+        <ProfilesList list={props.list} />
     </React.Fragment>;
 };

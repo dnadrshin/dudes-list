@@ -11,21 +11,25 @@ import { Panel } from './components/Panel'
 
 import { ListModel } from './model/ListModel';
 import { List } from './pages/List';
+import { FullDetailList } from './components/FullDetailList'
 
 const list = new ListModel();
 
 export const App = observer(() => {
     return <Router>
         <div style={{
-            width: '100%', maxWidth: '360', margin: 'auto', display: 'flex', flexFlow: 'column', height: '100%'
+            width: '100%', maxWidth: '600', margin: 'auto', display: 'flex', flexFlow: 'column', height: '100%'
         }}>
             <Panel />
             <Switch>
                 <Route path='/profile/:id'>
                     <Profile list={list} />
                 </Route>
-                <Route path='/'>
+                <Route path='/list'>
                     <List list={list} />
+                </Route>
+                <Route path='/'>
+                    <FullDetailList list={list} />
                 </Route>
             </Switch>
         </div>

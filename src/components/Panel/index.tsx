@@ -10,6 +10,9 @@ export const Panel = () => <AppBar position="static">
       <Typography variant="h6" >
         App
       </Typography>
-      <Link component={Button} color="inherit" to='/'>Home</Link>
+      <div>
+        <Link component={Button} color="inherit" to='/'>Home</Link>
+        <Link component={Button} color="inherit" to='/list'>List</Link>
+      </div>
     </Toolbar>
   </AppBar>
