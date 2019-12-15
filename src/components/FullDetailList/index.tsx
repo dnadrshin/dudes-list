@@ -12,7 +12,7 @@ export const FullDetailList = observer((props: { list }) => {
     const profiles = props.list.profiles$;
     return <Fragment>
         <Paginator list={props.list} />
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
             {profiles.map((profile) => <ProfileCard profile={profile} /> )}
         </div>
     </Fragment>

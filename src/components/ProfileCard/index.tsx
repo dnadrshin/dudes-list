@@ -41,7 +41,7 @@ export const ProfileCard = (props: { profile }) => {
     };
     const { profile } = props;
     return (
-        <Card style={{margin: '7px', width: '280px'}}>
+        <Card style={{margin: '7px', width: '285px'}}>
             <CardActionArea onClick={handleExpandClick}>
                 <CardMedia
                     style={{height: '200px'}}
@@ -62,7 +62,7 @@ export const ProfileCard = (props: { profile }) => {
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="show more"
-                    >
+                >
                     <ExpandMoreIcon />
                 </IconButton>
             </CardActions>
@@ -78,9 +78,10 @@ export const ProfileCard = (props: { profile }) => {
                     </Typography>
                     <Typography paragraph>
                     <div>Episodes:</div>
-                    <div>
+                    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
                         {profile.episode.map((episode, idx) => <Tooltip title={episode} aria-label="episode">
                             <Chip
+                                style={{margin: '7px'}}
                                 avatar={<Avatar>{idx + 1}</Avatar>}
                                 label="Episode"
                                 variant="outlined"
